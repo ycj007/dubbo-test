@@ -8,10 +8,20 @@
     <artifactId>dubbo</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+
+    <properties>
+        <spring-boot.version>1.3.0.RELEASE</spring-boot.version>
+    </properties>
     <modules>
         <module>service</module>
         <module>client</module>
         <module>service-contract</module>
+        <module>spring-boot-service</module>
+        <module>spring-boot-client</module>
+        <module>thrift-service</module>
+        <module>thrift-client</module>
+        <module>thrift-service-contract</module>
     </modules>
 
     <dependencyManagement>
@@ -28,6 +38,18 @@
                 <artifactId>jedis</artifactId>
                 <version>2.9.0</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>4.0.35.Final</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>0.1.0</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
@@ -40,8 +62,26 @@
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+        </dependency>
     </dependencies>
 
-
+    <repositories>
+        <repository>
+            <id>sonatype-nexus-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>
